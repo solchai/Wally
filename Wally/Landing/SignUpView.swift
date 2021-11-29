@@ -48,7 +48,7 @@ struct SignUpView: View {
                         Capsule()
                             .foregroundColor(.yellow)
                             .frame(height: 30)
-                        Text("Sign in")
+                        Text("Create Account")
                     }
                 }
                 .disabled(email.count == 0 || password.count == 0)
