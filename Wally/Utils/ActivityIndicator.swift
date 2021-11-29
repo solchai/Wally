@@ -21,3 +21,20 @@ struct ActivityIndicator: UIViewRepresentable {
         isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
     }
 }
+
+struct SpinWheel: ViewModifier {
+    @Binding var isLoading: Bool
+    
+    func body(content: Content) -> some View {
+        ZStack(alignment: .center) {
+            content
+            if isLoading {
+                Group {
+                    Color(red: 0, green: 0, blue: 0, opacity: 0.2)
+                        .ignoresSafeArea()
+                    ActivityIndicator(isAnimating: $isLoading, style: .large)
+                }
+            }
+        }
+    }
+}

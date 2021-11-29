@@ -27,7 +27,7 @@ struct LandingView: View {
                 }.padding()
                 
                 NavigationLink {
-                    
+                    SignUpView()
                 } label: {
                     Text("Create an Account")
                         .foregroundColor(.yellow)

@@ -11,7 +11,11 @@ import SwiftUI
 struct WallyApp: App {
     var body: some Scene {
         WindowGroup {
-            LandingView()
+            if let user = FirebaseManager.shared.auth.currentUser {
+                MainExploreView(user: CurrentUser())
+            } else {
+                LandingView()
+            }
         }
     }
 }

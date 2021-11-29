@@ -1,0 +1,69 @@
+//
+//  SignUpView.swift
+//  Wally
+//
+//  Created by Solomon Chai on 2021-11-27.
+//
+
+import SwiftUI
+
+struct SignUpView: View {
+    @State var email = ""
+    @State var password = ""
+    @ObservedObject var viewmodel = SignUpViewModel()
+    @State var isLoggedIn = false
+    
+    var body: some View {
+        VStack(alignment: .center) {
+            Image(systemName: "heart.fill")
+                .frame(width: 50, height: 50)
+            Spacer()
+            
+            Group {
+                TextField("Email Address", text: $email)
+                    .keyboardType(.emailAddress)
+                
+                ShowableSecureField(password: $password, placeHolder: "Password")
+            }
+            .disableAutocorrection(true)
+            .padding()
+            .background(Color.yellow)
+            .cornerRadius(5)
+            
+            switch viewmodel.status {
+            case .error(let message):
+                Text(message)
+                    .font(.system(size: 10))
+                    .foregroundColor(.red)
+            default:
+                EmptyView()
+            }
+            
+            Button {
+                viewmodel.loginUser(email: email, password: password) {
+                    isLoggedIn = self.viewmodel.status == .success
+                }
+            } label: {
+                ZStack(alignment: .center) {
+                    Capsule()
+                        .foregroundColor(.yellow)
+                        .frame(height: 30)
+                    Text("Create Account")
+                }
+            }
+            .disabled(email.count == 0 || password.count == 0)
+            .padding()
+        }
+        .padding()
+        .modifier(SpinWheel(isLoading: $viewmodel.isLoading))
+        .fullScreenCover(isPresented: $isLoggedIn, onDismiss: nil) {
+            MainExploreView(user: CurrentUser())
+        }
+    }
+}
+
+struct SignUpView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignUpView()
+    }
+}

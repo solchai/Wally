@@ -21,6 +21,9 @@
 		50D519502753413100593FC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50D5194F2753413100593FC9 /* GoogleService-Info.plist */; };
 		50D519532753444600593FC9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D519522753444600593FC9 /* SignUpView.swift */; };
 		50D51955275433DE00593FC9 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D51954275433DE00593FC9 /* SignUpViewModel.swift */; };
+		50D5195827545F8800593FC9 /* MainExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D5195727545F8800593FC9 /* MainExploreView.swift */; };
+		50D5195B275463D500593FC9 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D5195A275463D500593FC9 /* CurrentUser.swift */; };
+		50D5195D275474FD00593FC9 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D5195C275474FD00593FC9 /* ViewModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		50D5194F2753413100593FC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50D519522753444600593FC9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		50D51954275433DE00593FC9 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		50D5195727545F8800593FC9 /* MainExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainExploreView.swift; sourceTree = "<group>"; };
+		50D5195A275463D500593FC9 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		50D5195C275474FD00593FC9 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +79,9 @@
 			children = (
 				50D5193F2751E45200593FC9 /* Utils */,
 				500BF08F271E602E00C5F91F /* WallyApp.swift */,
-				50D519512753440C00593FC9 /* Landing */,
+				50D519512753440C00593FC9 /* Landing Controllers */,
+				50D519592754638500593FC9 /* Main Models */,
+				50D5195627545F2500593FC9 /* Main Controllers */,
 				50D5194F2753413100593FC9 /* GoogleService-Info.plist */,
 				500BF093271E603100C5F91F /* Assets.xcassets */,
 				500BF095271E603100C5F91F /* Preview Content */,
@@ -94,11 +102,12 @@
 			children = (
 				50D519402751E48000593FC9 /* FirebaseManager.swift */,
 				50D5194D2753274900593FC9 /* ActivityIndicator.swift */,
+				50D5195C275474FD00593FC9 /* ViewModifiers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		50D519512753440C00593FC9 /* Landing */ = {
+		50D519512753440C00593FC9 /* Landing Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				50D5193D275014A600593FC9 /* LandingView.swift */,
@@ -107,7 +116,23 @@
 				50D519522753444600593FC9 /* SignUpView.swift */,
 				50D51954275433DE00593FC9 /* SignUpViewModel.swift */,
 			);
-			path = Landing;
+			path = "Landing Controllers";
+			sourceTree = "<group>";
+		};
+		50D5195627545F2500593FC9 /* Main Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				50D5195727545F8800593FC9 /* MainExploreView.swift */,
+			);
+			path = "Main Controllers";
+			sourceTree = "<group>";
+		};
+		50D519592754638500593FC9 /* Main Models */ = {
+			isa = PBXGroup;
+			children = (
+				50D5195A275463D500593FC9 /* CurrentUser.swift */,
+			);
+			path = "Main Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,13 +214,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D5195B275463D500593FC9 /* CurrentUser.swift in Sources */,
 				50D519412751E48000593FC9 /* FirebaseManager.swift in Sources */,
 				50D5193E275014A600593FC9 /* LandingView.swift in Sources */,
 				50D51955275433DE00593FC9 /* SignUpViewModel.swift in Sources */,
 				50D5194A2752066500593FC9 /* LoginView.swift in Sources */,
 				50D519532753444600593FC9 /* SignUpView.swift in Sources */,
 				50D5194C2752C4C500593FC9 /* LoginVIewModel.swift in Sources */,
+				50D5195827545F8800593FC9 /* MainExploreView.swift in Sources */,
 				50D5194E2753274900593FC9 /* ActivityIndicator.swift in Sources */,
+				50D5195D275474FD00593FC9 /* ViewModifiers.swift in Sources */,
 				500BF090271E602E00C5F91F /* WallyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
