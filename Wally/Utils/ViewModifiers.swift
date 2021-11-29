@@ -11,7 +11,6 @@ import SwiftUI
 struct ColorPickerWarningView: View {
     @Binding var color: Color?
     @Binding var showWarning: Bool
-//    @State var showColorPicker = false
     @State var pickedColor = Color.yellow
     
     var body: some View {
