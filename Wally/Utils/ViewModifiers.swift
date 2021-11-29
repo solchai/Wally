@@ -11,7 +11,7 @@ import SwiftUI
 struct ColorPickerWarningView: View {
     @Binding var color: Color?
     @Binding var showWarning: Bool
-    @State var showColorPicker = false
+//    @State var showColorPicker = false
     @State var pickedColor = Color.yellow
     
     var body: some View {
@@ -30,16 +30,12 @@ struct ColorPickerWarningView: View {
                 Divider()
                 
                 HStack {
-                    Button {
-                        showWarning = false
-                    } label: {
-                        HStack {
-                            Text("Pick Now")
-                                .font(.system(size: 12, weight: .medium))
-                            ColorPicker("Pick your favorite!", selection: $pickedColor)
+                    ColorPicker("Pick Now!", selection: $pickedColor, supportsOpacity: false)
+                        .onDisappear {
+                            color = pickedColor
+                            showWarning = false
                         }
-                    }
-
+                    
                     Divider()
                     
                     Button {
@@ -48,21 +44,14 @@ struct ColorPickerWarningView: View {
                         Text("Later")
                             .font(.system(size: 12))
                     }
-
+                    
                 }
             }
             .padding()
         }
         .cornerRadius(5)
-//        .sheet(isPresented: $showColorPicker) {
-//            color = pickedColor
-//            showWarning = false
-//            showColorPicker = false
-//        } content: {
-//            ColorPicker("Pick your favorite!", selection: $pickedColor)
-//        }
     }
-}
+    }
 
 struct ColorPickerWarning: ViewModifier {
     @Binding var color: Color?
